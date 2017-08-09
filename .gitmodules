@@ -1,0 +1,3 @@
+[submodule "sicp"]
+	path = sicp
+	url = git@github.com:/sarabander/sicp.git
