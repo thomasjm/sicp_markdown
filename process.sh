@@ -59,3 +59,6 @@ python inliner.py $OUT $OUT
 
 # Make sure MathJax block maths are on their own lines
 perl -i -pe 'BEGIN {undef $/;} s/(\$\$[^\$]+\$\$)/\n$1\n/sgm' $OUT
+
+# Make exercise blocks not indented
+python deindent_exercises.py $OUT $OUT
