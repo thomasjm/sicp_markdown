@@ -56,3 +56,6 @@ perl -i -pe 's/\[\^(\d+)\^\]\([^\)]*\)\{[^}]*\}/\[\^$1\]/g' $OUT
 
 # Turn footnotes into inline footnotes
 python inliner.py $OUT $OUT
+
+# Make sure MathJax block maths are on their own lines
+perl -i -pe 'BEGIN {undef $/;} s/(\$\$[^\$]+\$\$)/\n$1\n/sgm' $OUT
