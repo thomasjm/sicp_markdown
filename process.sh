@@ -57,8 +57,10 @@ perl -i -pe 's/\[\^(\d+)\^\]\([^\)]*\)\{[^}]*\}/\[\^$1\]/g' $OUT
 # Turn footnotes into inline footnotes
 python inliner.py $OUT $OUT
 
+# Make exercise blocks not indented
+# Do this before moving MathJax block maths to their own lines, because that can break
+# up an exercise
+python deindent_exercises.py $OUT $OUT
+
 # Make sure MathJax block maths are on their own lines
 perl -i -pe 'BEGIN {undef $/;} s/(\$\$[^\$]+\$\$)/\n$1\n/sgm' $OUT
-
-# Make exercise blocks not indented
-python deindent_exercises.py $OUT $OUT
