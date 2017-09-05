@@ -19,7 +19,7 @@ sed -i 's/{.lisp/{.scheme/g' $OUT
 sed -i 's/ .prettyprinted style=""//g' $OUT
 
 # Make sure block quotes have a space for empty lines
-sed -i 's/>/> /g' $OUT
+sed -i 's/^>/> /g' $OUT
 
 # Remove div lines
 perl -i -pe 's/<\/div>\n//g' $OUT
